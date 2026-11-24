@@ -11,12 +11,12 @@ import streamlit as st
 # =====================================================
 SHOP = {
     "name": "Thuốc Lá Lâm Thịnh",
-    "address": "123 Đường ABC, Phường XYZ, TP. ...",  # TODO: địa chỉ thật
-    "phone": "0900 000 000",                         # TODO: số điện thoại thật
-    "zalo": "0900000000",                            # TODO: số Zalo (viết liền)
+    "address": "Định Công, Hà Nội",
+    "phone": "0347653354",
+    "zalo": "0347653354",
     "hours": "7:00 – 21:00, tất cả các ngày",
     "license": "……/GP-…",                            # TODO: số giấy phép bán lẻ thuốc lá
-    "map_query": "Hà Nội",                           # TODO: địa chỉ để hiện bản đồ
+    "map_query": "Định Công, Hà Nội",
 }
 
 # =====================================================

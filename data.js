@@ -8,7 +8,7 @@ window.SHOP = {
   zalo: "0347653354",                             // TODO: số Zalo (viết liền)
   hours: "7:00 – 21:00, tất cả các ngày",
   license: "……/GP-…",                             // TODO: số giấy phép bán lẻ thuốc lá
-  mapQuery: "Hà Nội"                              // TODO: địa chỉ để hiện Google Maps
+  mapQuery: "Định Công, Hà Nội"
 };
 
 // =====================================================
