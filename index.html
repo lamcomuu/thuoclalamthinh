@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thuốc Lá Lâm Thịnh</title>
+  <meta name="description" content="Cửa hàng Thuốc Lá Lâm Thịnh – đại lý bán lẻ thuốc lá chính hãng, có giấy phép kinh doanh. Chỉ phục vụ khách hàng từ 18 tuổi trở lên.">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Cổng xác nhận tuổi -->
+  <div id="age-gate" class="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-title" hidden>
+    <div class="age-card">
+      <div class="logo-mark" aria-hidden="true">LT</div>
+      <h2 id="age-title">Xác nhận độ tuổi</h2>
+      <p>Trang web này giới thiệu sản phẩm thuốc lá và chỉ dành cho người <strong>từ 18 tuổi trở lên</strong>.</p>
+      <p class="muted">Theo Luật Phòng, chống tác hại của thuốc lá, cửa hàng không bán cho người dưới 18 tuổi.</p>
+      <div class="age-actions">
+        <button class="btn btn-primary" id="age-yes">Tôi đủ 18 tuổi</button>
+        <button class="btn btn-ghost" id="age-no">Tôi chưa đủ 18 tuổi</button>
+      </div>
+      <p id="age-denied" class="denied" hidden>Rất tiếc, bạn chưa đủ tuổi để truy cập trang này.</p>
+    </div>
+  </div>
+
+  <!-- Cảnh báo sức khỏe -->
+  <div class="health-bar" role="note">
+    ⚠️ HÚT THUỐC LÁ GÂY UNG THƯ PHỔI, BỆNH TIM MẠCH VÀ NHIỀU BỆNH NGUY HIỂM KHÁC · KHÔNG BÁN CHO NGƯỜI DƯỚI 18 TUỔI
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <span class="logo-mark" aria-hidden="true">LT</span>
+        <span class="brand-text">
+          <span class="brand-name">Lâm Thịnh</span>
+          <span class="brand-sub">Thuốc lá chính hãng</span>
+        </span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#san-pham">Sản phẩm</a>
+        <a href="#gioi-thieu">Giới thiệu</a>
+        <a href="#dat-hang">Đặt hàng</a>
+        <a href="#lien-he">Liên hệ</a>
+      </nav>
+      <button class="cart-btn" id="cart-open" aria-label="Mở giỏ hàng">
+        🛒 <span id="cart-count" class="cart-count">0</span>
+      </button>
+      <button class="menu-btn" id="menu-btn" aria-label="Mở menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <p class="eyebrow">Đại lý bán lẻ có giấy phép</p>
+          <h1>Thuốc Lá Lâm Thịnh</h1>
+          <p class="lead">Hàng chính hãng, có tem nhãn đầy đủ, nguồn gốc rõ ràng. Phục vụ khách lẻ và khách sỉ tại cửa hàng.</p>
+          <div class="hero-actions">
+            <a href="#san-pham" class="btn btn-primary">Xem bảng giá</a>
+            <a href="#lien-he" class="btn btn-ghost">Liên hệ cửa hàng</a>
+          </div>
+          <ul class="trust">
+            <li>✔ Hàng có tem Bộ Tài chính</li>
+            <li>✔ Hóa đơn đầy đủ</li>
+            <li>✔ Giá niêm yết rõ ràng</li>
+          </ul>
+        </div>
+        <div class="hero-card" aria-hidden="true">
+          <div class="hero-card-inner">
+            <span class="hero-badge">Từ 2010</span>
+            <p class="hero-quote">“Uy tín – Chính hãng – Tận tâm”</p>
+            <p class="hero-sign">Cửa hàng Lâm Thịnh</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="san-pham" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Bảng giá sản phẩm</h2>
+          <p class="muted">Giá tham khảo, có thể thay đổi theo thời điểm. Vui lòng liên hệ để biết giá chính xác.</p>
+        </div>
+
+        <div class="toolbar">
+          <div class="filters" id="filters" role="tablist" aria-label="Lọc theo loại"></div>
+          <input type="search" id="search" class="search" placeholder="Tìm sản phẩm…" aria-label="Tìm sản phẩm">
+        </div>
+
+        <div class="grid" id="product-grid"></div>
+        <p id="empty" class="muted center" hidden>Không tìm thấy sản phẩm phù hợp.</p>
+      </div>
+    </section>
+
+    <section id="gioi-thieu" class="section alt">
+      <div class="container about">
+        <div>
+          <h2>Về Lâm Thịnh</h2>
+          <p>Thuốc Lá Lâm Thịnh là cửa hàng bán lẻ thuốc lá được cấp <strong>Giấy phép bán lẻ sản phẩm thuốc lá</strong> theo quy định. Chúng tôi chỉ kinh doanh sản phẩm chính hãng từ các nhà sản xuất và nhà phân phối hợp pháp.</p>
+          <p>Cửa hàng cam kết tuân thủ pháp luật: không bán cho người dưới 18 tuổi, không bán thuốc lá nhập lậu, không khuyến mại sản phẩm thuốc lá.</p>
+        </div>
+        <div class="features">
+          <div class="feature"><span>🏷️</span><h3>Chính hãng</h3><p>Có tem, nhãn và cảnh báo sức khỏe theo quy định.</p></div>
+          <div class="feature"><span>📄</span><h3>Có giấy phép</h3><p>Giấy phép bán lẻ do cơ quan có thẩm quyền cấp.</p></div>
+          <div class="feature"><span>🤝</span><h3>Khách sỉ</h3><p>Nhận đơn số lượng lớn cho đại lý, tạp hóa.</p></div>
+          <div class="feature"><span>🪪</span><h3>Kiểm tra tuổi</h3><p>Xuất trình CCCD khi nhận hàng nếu được yêu cầu.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dat-hang" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Cách đặt hàng</h2>
+          <p class="muted">Đặt trước qua điện thoại / Zalo, nhận hàng và thanh toán trực tiếp tại cửa hàng.</p>
+        </div>
+        <ol class="steps">
+          <li><span>1</span><h3>Chọn sản phẩm</h3><p>Thêm sản phẩm vào giỏ trên trang này.</p></li>
+          <li><span>2</span><h3>Gửi đơn</h3><p>Bấm “Gửi đơn qua Zalo” hoặc gọi điện cho cửa hàng.</p></li>
+          <li><span>3</span><h3>Xác nhận</h3><p>Cửa hàng gọi lại xác nhận đơn và thời gian nhận hàng.</p></li>
+          <li><span>4</span><h3>Nhận tại cửa hàng</h3><p>Kiểm tra hàng, xuất trình CCCD và thanh toán.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="lien-he" class="section alt">
+      <div class="container contact">
+        <div>
+          <h2>Liên hệ</h2>
+          <ul class="contact-list">
+            <li><strong>Địa chỉ:</strong> <span data-config="address"></span></li>
+            <li><strong>Điện thoại:</strong> <a data-config="phone" data-href="tel"></a></li>
+            <li><strong>Zalo:</strong> <a data-config="zalo" data-href="zalo" target="_blank" rel="noopener"></a></li>
+            <li><strong>Giờ mở cửa:</strong> <span data-config="hours"></span></li>
+            <li><strong>Giấy phép bán lẻ số:</strong> <span data-config="license"></span></li>
+          </ul>
+        </div>
+        <div class="map-box">
+          <iframe id="map" title="Bản đồ cửa hàng" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="warning-strong">Thuốc lá gây hại cho sức khỏe của bạn và những người xung quanh. Bỏ thuốc lá ngay hôm nay – Tổng đài tư vấn cai nghiện thuốc lá: <strong>1800 6606</strong> (miễn phí).</p>
+      <p class="muted">© <span id="year"></span> Thuốc Lá Lâm Thịnh. Không bán cho người dưới 18 tuổi.</p>
+    </div>
+  </footer>
+
+  <!-- Giỏ hàng -->
+  <div id="cart-backdrop" class="backdrop" hidden></div>
+  <aside id="cart" class="cart" aria-label="Giỏ hàng" aria-hidden="true">
+    <div class="cart-head">
+      <h2>Giỏ hàng</h2>
+      <button class="icon-btn" id="cart-close" aria-label="Đóng giỏ hàng">✕</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-foot">
+      <div class="cart-total"><span>Tạm tính</span><strong id="cart-total">0 ₫</strong></div>
+      <label class="field">Họ tên<input id="cust-name" type="text" autocomplete="name"></label>
+      <label class="field">Số điện thoại<input id="cust-phone" type="tel" autocomplete="tel"></label>
+      <label class="check"><input id="cust-age" type="checkbox"> Tôi xác nhận đủ 18 tuổi và sẽ xuất trình CCCD khi nhận hàng.</label>
+      <p id="cart-error" class="error" hidden></p>
+      <button class="btn btn-primary block" id="send-zalo">Gửi đơn qua Zalo</button>
+      <a class="btn btn-ghost block" id="call-shop">Gọi đặt hàng</a>
+      <p class="muted small">Nội dung đơn sẽ được sao chép, bạn chỉ cần dán vào khung chat Zalo.</p>
+    </div>
+  </aside>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
