@@ -12,20 +12,40 @@ window.SHOP = {
 };
 
 // =====================================================
-//  DANH SÁCH SẢN PHẨM – giá tham khảo (VNĐ), sửa theo giá thực tế
-//  unit: "bao" (20 điếu) hoặc "cây" (10 bao)
+//  DANH SÁCH SẢN PHẨM (giá VNĐ)
+//  unit: đơn vị bán, art: kiểu hình minh họa ("tin" | "box" | "sticks")
 // =====================================================
 window.PRODUCTS = [
-  { id: "vinataba",     name: "Vinataba",            category: "Trong nước", pack: 30000, carton: 290000, color: "#b8862f" },
-  { id: "thanglong",    name: "Thăng Long",          category: "Trong nước", pack: 15000, carton: 145000, color: "#a23b2a" },
-  { id: "thanglong-xl", name: "Thăng Long Xanh",     category: "Trong nước", pack: 16000, carton: 155000, color: "#2f6f5b" },
-  { id: "hero",         name: "Hero",                category: "Trong nước", pack: 22000, carton: 210000, color: "#7a2430" },
-  { id: "craven",       name: "Craven A",            category: "Trong nước", pack: 26000, carton: 250000, color: "#c23a2b" },
-  { id: "bastos",       name: "Bastos Xanh",         category: "Trong nước", pack: 14000, carton: 135000, color: "#2c4f8a" },
-  { id: "555",          name: "555 State Express",   category: "Nhập khẩu",  pack: 35000, carton: 340000, color: "#1f3f86" },
-  { id: "marlboro",     name: "Marlboro Đỏ",         category: "Nhập khẩu",  pack: 33000, carton: 320000, color: "#b5202b" },
-  { id: "marlboro-g",   name: "Marlboro Gold",       category: "Nhập khẩu",  pack: 33000, carton: 320000, color: "#b8912f" },
-  { id: "esse",         name: "Esse Change",         category: "Nhập khẩu",  pack: 32000, carton: 310000, color: "#5f6b78" },
-  { id: "jet",          name: "Jet",                 category: "Trong nước", pack: 18000, carton: 175000, color: "#3a3a3a" },
-  { id: "white-horse",  name: "White Horse",         category: "Trong nước", pack: 12000, carton: 115000, color: "#6b5a3b" }
+  {
+    id: "soi-dinh-huong",
+    name: "Sợi thuốc lá ủ đinh hương",
+    category: "Sợi thuốc tẩu",
+    desc: "Sợi thuốc ủ cùng đinh hương, hương thơm ấm, dành cho người hút tẩu.",
+    price: 140000, unit: "lạng", unitNote: "1 lạng = 100 g",
+    art: "tin", short: "Đinh hương", color: "#7a3b22"
+  },
+  {
+    id: "soi-moc",
+    name: "Sợi thuốc mộc",
+    category: "Sợi thuốc tẩu",
+    desc: "Sợi thuốc mộc nguyên vị, không tẩm hương, dành cho người hút tẩu.",
+    price: 70000, unit: "lạng", unitNote: "1 lạng = 100 g",
+    art: "tin", short: "Mộc", color: "#8a6a32"
+  },
+  {
+    id: "loc-9mm",
+    name: "Hộp lọc tẩu 9 mm",
+    category: "Phụ kiện",
+    desc: "Lọc than hoạt tính 9 mm cho tẩu, hộp 250 cái.",
+    price: 240000, unit: "hộp", unitNote: "250 cái / hộp",
+    art: "box", short: "Lọc 9 mm", color: "#2f4f4a"
+  },
+  {
+    id: "que-thong",
+    name: "Túi que thông tẩu",
+    category: "Phụ kiện",
+    desc: "Que thông vệ sinh tẩu, túi 50 que.",
+    price: 24000, unit: "túi", unitNote: "50 que / túi",
+    art: "sticks", short: "Que thông", color: "#5a4a6b"
+  }
 ];

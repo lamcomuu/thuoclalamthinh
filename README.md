@@ -1,12 +1,12 @@
 # Thuốc Lá Lâm Thịnh
 
-Trang web giới thiệu & nhận đặt hàng của cửa hàng bán lẻ thuốc lá Lâm Thịnh.
+Trang web giới thiệu & nhận đặt hàng của cửa hàng Lâm Thịnh – sợi thuốc lá cho tẩu và phụ kiện tẩu.
 Trang tĩnh (HTML/CSS/JS thuần), không cần build — mở `index.html` là chạy.
 
 ## Tính năng
 - Cổng xác nhận 18+ khi vào trang, cảnh báo sức khỏe luôn hiển thị.
-- Bảng giá sản phẩm, lọc theo loại (trong nước / nhập khẩu), tìm kiếm.
-- Giỏ hàng (lưu trên trình duyệt), chọn mua theo bao hoặc cây.
+- Sản phẩm: sợi thuốc lá ủ đinh hương, sợi thuốc mộc (bán theo lạng), lọc tẩu 9 mm, que thông tẩu; lọc theo loại, tìm kiếm.
+- Giỏ hàng (lưu trên trình duyệt): sợi thuốc tẩu bán theo lạng, phụ kiện theo hộp/túi.
 - Gửi đơn qua Zalo (tự sao chép nội dung đơn) hoặc gọi điện; nhận & thanh toán tại cửa hàng.
 - Thông tin liên hệ, giờ mở cửa, số giấy phép, bản đồ Google Maps.
 - Giao diện sáng/tối tự động, hiển thị tốt trên điện thoại.
@@ -14,7 +14,7 @@ Trang tĩnh (HTML/CSS/JS thuần), không cần build — mở `index.html` là 
 ## Chỉnh sửa
 Toàn bộ thông tin cửa hàng và sản phẩm nằm trong **`data.js`**:
 - `SHOP` – địa chỉ, điện thoại, Zalo, giờ mở cửa, số giấy phép, địa chỉ bản đồ.
-- `PRODUCTS` – tên, loại, giá bao (`pack`), giá cây (`carton`), màu minh họa.
+- `PRODUCTS` – tên, loại, mô tả, giá (`price`), đơn vị (`unit`), ghi chú quy cách, màu minh họa.
 
 ## Đăng lên mạng (GitHub Pages)
 Settings → Pages → Source: *Deploy from a branch* → chọn `main` / `/ (root)` → Save.

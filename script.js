@@ -71,43 +71,44 @@
       <article class="card">
         <div class="pack-art" style="--c:${p.color}">
           <span class="tag">${p.category}</span>
-          <div class="box"><div class="top"></div><div class="label">${p.name}</div></div>
+          ${artHtml(p)}
         </div>
         <div class="card-body">
           <h3>${p.name}</h3>
-          <div class="prices">
-            <button class="price-opt" data-id="${p.id}" data-unit="bao"><span class="add">+</span><small>Bao (20 điếu)</small><strong>${fmt(p.pack)}</strong></button>
-            <button class="price-opt" data-id="${p.id}" data-unit="cay"><span class="add">+</span><small>Cây (10 bao)</small><strong>${fmt(p.carton)}</strong></button>
+          <p class="desc">${p.desc}</p>
+          <div class="price-row">
+            <div><strong class="price">${fmt(p.price)}</strong> <span class="muted">/ ${p.unit}</span><br><small class="muted">${p.unitNote}</small></div>
+            <button class="btn btn-primary add-btn" data-id="${p.id}">+ Thêm</button>
           </div>
         </div>
       </article>`).join("");
     $("#empty").hidden = list.length > 0;
   }
+  function artHtml(p) {
+    if (p.art === "tin") return `<div class="tin"><span>${p.short}</span></div>`;
+    if (p.art === "box") return `<div class="box"><div class="top"></div><div class="label">${p.short}<br>250 cái</div></div>`;
+    return `<div class="sticks" aria-hidden="true">${"<i></i>".repeat(7)}</div>`;
+  }
   $("#product-grid").addEventListener("click", (e) => {
-    const btn = e.target.closest(".price-opt");
-    if (btn) addToCart(btn.dataset.id, btn.dataset.unit);
+    const btn = e.target.closest(".add-btn");
+    if (btn) addToCart(btn.dataset.id);
   });
 
   /* ---------- Cart ---------- */
-  let cart = store.get("lt_cart", {}); // key "id|unit" -> qty
-  const unitLabel = { bao: "bao", cay: "cây" };
-  const priceOf = (p, unit) => (unit === "cay" ? p.carton : p.pack);
-
-  function addToCart(id, unit) {
-    const k = id + "|" + unit;
-    cart[k] = (cart[k] || 0) + 1;
+  let cart = store.get("lt_cart2", {}); // id -> qty
+  function addToCart(id) {
+    cart[id] = (cart[id] || 0) + 1;
     saveCart();
     const p = PRODUCTS.find((x) => x.id === id);
-    toast(`Đã thêm 1 ${unitLabel[unit]} ${p.name}`);
+    toast(`Đã thêm 1 ${p.unit} ${p.name}`);
   }
   function setQty(k, q) { if (q <= 0) delete cart[k]; else cart[k] = q; saveCart(); }
-  function saveCart() { store.set("lt_cart", cart); renderCart(); }
+  function saveCart() { store.set("lt_cart2", cart); renderCart(); }
 
   function cartLines() {
     return Object.entries(cart).map(([k, qty]) => {
-      const [id, unit] = k.split("|");
-      const p = PRODUCTS.find((x) => x.id === id);
-      return p ? { k, p, unit, qty, total: priceOf(p, unit) * qty } : null;
+      const p = PRODUCTS.find((x) => x.id === k);
+      return p ? { k, p, qty, total: p.price * qty } : null;
     }).filter(Boolean);
   }
 
@@ -119,7 +120,7 @@
     $("#cart-total").textContent = fmt(total);
     $("#cart-items").innerHTML = lines.length ? lines.map((l) => `
       <div class="cart-item">
-        <div class="info"><strong>${l.p.name}</strong><br><small>${fmt(priceOf(l.p, l.unit))} / ${unitLabel[l.unit]}</small></div>
+        <div class="info"><strong>${l.p.name}</strong><br><small>${fmt(l.p.price)} / ${l.p.unit}</small></div>
         <div class="qty">
           <button data-k="${l.k}" data-d="-1" aria-label="Giảm">−</button>
           <span>${l.qty}</span>
@@ -159,7 +160,7 @@
       `ĐƠN ĐẶT HÀNG – ${SHOP.name}`,
       `Khách: ${name} – ${phone}`,
       "",
-      ...lines.map((l) => `• ${l.p.name}: ${l.qty} ${unitLabel[l.unit]} = ${fmt(l.total)}`),
+      ...lines.map((l) => `• ${l.p.name}: ${l.qty} ${l.p.unit} = ${fmt(l.total)}`),
       "",
       `Tạm tính: ${fmt(total)}`,
       "Nhận hàng tại cửa hàng. Tôi xác nhận đủ 18 tuổi."
