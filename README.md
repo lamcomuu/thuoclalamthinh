@@ -16,6 +16,19 @@ Toàn bộ thông tin cửa hàng và sản phẩm nằm trong **`data.js`**:
 - `SHOP` – địa chỉ, điện thoại, Zalo, giờ mở cửa, số giấy phép, địa chỉ bản đồ.
 - `PRODUCTS` – tên, loại, mô tả, giá (`price`), đơn vị (`unit`), ghi chú quy cách, màu minh họa.
 
+## Phiên bản Streamlit
+File `streamlit_app.py` là bản web viết bằng Streamlit (cùng sản phẩm, giỏ hàng, tạo đơn gửi Zalo).
+Thông tin cửa hàng và sản phẩm của bản này sửa trực tiếp ở đầu file `streamlit_app.py` (`SHOP`, `PRODUCTS`).
+
+Chạy trên máy:
+```bash
+pip install -r requirements.txt
+streamlit run streamlit_app.py
+```
+
+Đăng miễn phí lên Streamlit Community Cloud: vào https://share.streamlit.io → *Create app* →
+chọn repo `lamcomuu/thuoclalamthinh`, nhánh `main`, file `streamlit_app.py` → *Deploy*.
+
 ## Đăng lên mạng (GitHub Pages)
 Settings → Pages → Source: *Deploy from a branch* → chọn `main` / `/ (root)` → Save.
 
