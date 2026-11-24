@@ -16,6 +16,18 @@ Toàn bộ thông tin cửa hàng và sản phẩm nằm trong **`data.js`**:
 - `SHOP` – địa chỉ, điện thoại, Zalo, giờ mở cửa, số giấy phép, địa chỉ bản đồ.
 - `PRODUCTS` – tên, loại, mô tả, giá (`price`), đơn vị (`unit`), ghi chú quy cách, màu minh họa.
 
+## Ảnh sản phẩm
+Tải ảnh thật vào thư mục `images/`, đặt tên đúng như sau (nên là ảnh vuông hoặc ngang, dưới 500 KB):
+
+| Sản phẩm | Tên file |
+|---|---|
+| Sợi thuốc lá ủ đinh hương | `images/soi-dinh-huong.jpg` |
+| Sợi thuốc mộc | `images/soi-moc.jpg` |
+| Hộp lọc tẩu 9 mm | `images/loc-9mm.jpg` |
+| Túi que thông tẩu | `images/que-thong.jpg` |
+
+Sản phẩm nào chưa có ảnh thì trang tự hiện hình minh họa như cũ.
+
 ## Phiên bản Streamlit
 File `streamlit_app.py` là bản web viết bằng Streamlit (cùng sản phẩm, giỏ hàng, tạo đơn gửi Zalo).
 Thông tin cửa hàng và sản phẩm của bản này sửa trực tiếp ở đầu file `streamlit_app.py` (`SHOP`, `PRODUCTS`).

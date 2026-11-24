@@ -72,6 +72,7 @@
         <div class="pack-art" style="--c:${p.color}">
           <span class="tag">${p.category}</span>
           ${artHtml(p)}
+          ${p.image ? `<img class="photo" src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.remove()">` : ""}
         </div>
         <div class="card-body">
           <h3>${p.name}</h3>

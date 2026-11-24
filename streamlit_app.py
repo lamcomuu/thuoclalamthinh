@@ -2,6 +2,7 @@
 
 Chạy:  streamlit run streamlit_app.py
 """
+from pathlib import Path
 from urllib.parse import quote
 
 import streamlit as st
@@ -57,6 +58,16 @@ PRODUCTS = [
     },
 ]
 BY_ID = {p["id"]: p for p in PRODUCTS}
+IMAGE_DIR = Path(__file__).parent / "images"
+
+
+def product_image(p):
+    """Ảnh thật: images/<id>.jpg (hoặc .jpeg/.png/.webp). Chưa có thì trả về None."""
+    for ext in ("jpg", "jpeg", "png", "webp"):
+        f = IMAGE_DIR / f"{p['id']}.{ext}"
+        if f.exists():
+            return f
+    return None
 HEALTH_WARNING = (
     "⚠️ HÚT THUỐC LÁ GÂY UNG THƯ PHỔI, BỆNH TIM MẠCH VÀ NHIỀU BỆNH NGUY HIỂM KHÁC "
     "· KHÔNG BÁN CHO NGƯỜI DƯỚI 18 TUỔI"
@@ -176,10 +187,14 @@ with tab_sp:
     cols = st.columns(min(4, len(shown)) or 1)
     for col, p in zip(cols * 4, shown):
         with col.container(border=True):
-            st.markdown(
-                f'<div class="art" style="background:linear-gradient(160deg,{p["color"]},#1e1a16)">{p["icon"]}</div>',
-                unsafe_allow_html=True,
-            )
+            img = product_image(p)
+            if img:
+                st.image(str(img), width="stretch")
+            else:
+                st.markdown(
+                    f'<div class="art" style="background:linear-gradient(160deg,{p["color"]},#1e1a16)">{p["icon"]}</div>',
+                    unsafe_allow_html=True,
+                )
             st.markdown(f"**{p['name']}**")
             st.caption(p["category"])
             st.markdown(f'<span class="muted">{p["desc"]}</span>', unsafe_allow_html=True)

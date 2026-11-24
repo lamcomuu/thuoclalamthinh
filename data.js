@@ -13,11 +13,13 @@ window.SHOP = {
 
 // =====================================================
 //  DANH SÁCH SẢN PHẨM (giá VNĐ)
+//  image: ảnh thật trong thư mục images/ (chưa có thì hiện hình minh họa)
 //  unit: đơn vị bán, art: kiểu hình minh họa ("tin" | "box" | "sticks")
 // =====================================================
 window.PRODUCTS = [
   {
     id: "soi-dinh-huong",
+    image: "images/soi-dinh-huong.jpg",
     name: "Sợi thuốc lá ủ đinh hương",
     category: "Sợi thuốc tẩu",
     desc: "Sợi thuốc ủ cùng đinh hương, hương thơm ấm, dành cho người hút tẩu.",
@@ -26,6 +28,7 @@ window.PRODUCTS = [
   },
   {
     id: "soi-moc",
+    image: "images/soi-moc.jpg",
     name: "Sợi thuốc mộc",
     category: "Sợi thuốc tẩu",
     desc: "Sợi thuốc mộc nguyên vị, không tẩm hương, dành cho người hút tẩu.",
@@ -34,6 +37,7 @@ window.PRODUCTS = [
   },
   {
     id: "loc-9mm",
+    image: "images/loc-9mm.jpg",
     name: "Hộp lọc tẩu 9 mm",
     category: "Phụ kiện",
     desc: "Lọc than hoạt tính 9 mm cho tẩu, hộp 250 cái.",
@@ -42,6 +46,7 @@ window.PRODUCTS = [
   },
   {
     id: "que-thong",
+    image: "images/que-thong.jpg",
     name: "Túi que thông tẩu",
     category: "Phụ kiện",
     desc: "Que thông vệ sinh tẩu, túi 50 que.",
