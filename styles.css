@@ -149,7 +149,7 @@ body.locked { overflow: hidden; }
   overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow);
 }
 .pack-art {
-  height: 200px; display: grid; place-items: center; position: relative; overflow: hidden;
+  height: 240px; display: grid; place-items: center; position: relative; overflow: hidden;
   background: linear-gradient(160deg, var(--c), color-mix(in srgb, var(--c) 60%, #000));
 }
 .pack-art .box {
@@ -161,7 +161,7 @@ body.locked { overflow: hidden; }
   flex: 1; display: grid; place-items: center; text-align: center; padding: 4px;
   font-size: .6rem; font-weight: 700; color: #333; line-height: 1.1;
 }
-.pack-art .photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pack-art .photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #f3ede3; }
 .pack-art .tag {
   z-index: 1;
   position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,.45); color: #fff;
@@ -169,7 +169,14 @@ body.locked { overflow: hidden; }
 }
 .card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .card-body h3 { margin: 0; font-size: 1.05rem; }
-.desc { margin: 0; color: var(--muted); font-size: .9rem; flex: 1; }
+.desc { margin: 0; color: var(--muted); font-size: .9rem; }
+.card-body .price-row { margin-top: auto; }
+.info { border-top: 1px dashed var(--border); padding-top: 8px; font-size: .88rem; }
+.info summary { cursor: pointer; color: var(--primary); font-weight: 600; }
+.info dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; margin: 8px 0; }
+.info dt { color: var(--muted); }
+.info dd { margin: 0; }
+.info p { margin: 0 0 4px; }
 .price-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; }
 .price { font-size: 1.15rem; white-space: nowrap; }
 .add-btn { padding: .55em 1em; white-space: nowrap; }

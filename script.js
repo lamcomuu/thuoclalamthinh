@@ -77,6 +77,11 @@
         <div class="card-body">
           <h3>${p.name}</h3>
           <p class="desc">${p.desc}</p>
+          <details class="info">
+            <summary>Thông tin sản phẩm</summary>
+            <dl>${p.specs.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
+            <p><strong>Cách dùng:</strong> ${p.usage}</p>
+          </details>
           <div class="price-row">
             <div><strong class="price">${fmt(p.price)}</strong> <span class="muted">/ ${p.unit}</span><br><small class="muted">${p.unitNote}</small></div>
             <button class="btn btn-primary add-btn" data-id="${p.id}">+ Thêm</button>

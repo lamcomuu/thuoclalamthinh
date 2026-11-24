@@ -28,7 +28,9 @@ PRODUCTS = [
         "id": "soi-dinh-huong",
         "name": "Sợi thuốc lá ủ đinh hương",
         "category": "Sợi thuốc tẩu",
-        "desc": "Sợi thuốc ủ cùng đinh hương, hương thơm ấm, dành cho người hút tẩu.",
+        "desc": "Sợi thuốc lá dành cho tẩu, được ủ cùng đinh hương cho hương thơm ấm, cay nhẹ đặc trưng.",
+        "specs": [["Loại", "Sợi thuốc lá dùng cho tẩu"], ["Hương vị", "Thơm ấm, cay nhẹ của đinh hương"], ["Quy cách", "Bán theo lạng (100 g), cân tại cửa hàng"], ["Bảo quản", "Đựng trong túi hoặc hũ kín, để nơi khô ráo, thoáng mát, tránh ánh nắng"]],
+        "usage": "Nhồi sợi vào nõ tẩu vừa tay, không nén quá chặt để tẩu cháy đều.",
         "price": 140_000, "unit": "lạng", "note": "1 lạng = 100 g",
         "icon": "🍂", "color": "#7a3b22",
     },
@@ -36,7 +38,9 @@ PRODUCTS = [
         "id": "soi-moc",
         "name": "Sợi thuốc mộc",
         "category": "Sợi thuốc tẩu",
-        "desc": "Sợi thuốc mộc nguyên vị, không tẩm hương, dành cho người hút tẩu.",
+        "desc": "Sợi thuốc lá mộc nguyên vị, không tẩm hương, giữ vị thuốc nguyên bản.",
+        "specs": [["Loại", "Sợi thuốc lá dùng cho tẩu"], ["Hương vị", "Nguyên vị, không tẩm hương liệu"], ["Quy cách", "Bán theo lạng (100 g), cân tại cửa hàng"], ["Bảo quản", "Đựng trong túi hoặc hũ kín, để nơi khô ráo, thoáng mát, tránh ánh nắng"]],
+        "usage": "Nhồi sợi vào nõ tẩu vừa tay, không nén quá chặt để tẩu cháy đều.",
         "price": 70_000, "unit": "lạng", "note": "1 lạng = 100 g",
         "icon": "🌾", "color": "#8a6a32",
     },
@@ -44,7 +48,9 @@ PRODUCTS = [
         "id": "loc-9mm",
         "name": "Hộp lọc tẩu 9 mm",
         "category": "Phụ kiện",
-        "desc": "Lọc than hoạt tính 9 mm cho tẩu.",
+        "desc": "Lọc tẩu Vauen Dr. Perl junior Systemfilter Plus, lõi than hoạt tính, đường kính 9 mm.",
+        "specs": [["Thương hiệu", "Vauen – Dr. Perl junior (Đức)"], ["Dòng", "Systemfilter Plus"], ["Chất liệu lọc", "Than hoạt tính (activated carbon)"], ["Kích thước", "Đường kính 9 mm"], ["Quy cách", "250 cái / hộp"], ["Phù hợp", "Tẩu có ngàm lắp lọc 9 mm"]],
+        "usage": "Lắp lọc vào ngàm lọc của tẩu. Thay lọc mới khi lọc đã ẩm hoặc sau vài lần hút.",
         "price": 240_000, "unit": "hộp", "note": "250 cái / hộp",
         "icon": "📦", "color": "#2f4f4a",
     },
@@ -52,7 +58,9 @@ PRODUCTS = [
         "id": "que-thong",
         "name": "Túi que thông tẩu",
         "category": "Phụ kiện",
-        "desc": "Que thông vệ sinh tẩu.",
+        "desc": "Que thông tẩu SL Pipes bằng cotton, thấm hút tốt, dùng vệ sinh ống ngậm và lòng tẩu.",
+        "specs": [["Thương hiệu", "SL Pipes"], ["Chất liệu", "Cotton thấm hút (extra absorbent)"], ["Kích thước", "4 mm × 15,5 cm"], ["Quy cách", "50 que / túi"], ["Công dụng", "Làm sạch ống ngậm, cổ tẩu và lòng tẩu"]],
+        "usage": "Luồn que qua ống ngậm và cổ tẩu, đẩy kéo nhẹ nhiều lần để hút sạch hơi ẩm và cặn.",
         "price": 24_000, "unit": "túi", "note": "50 que / túi",
         "icon": "🪶", "color": "#5a4a6b",
     },
@@ -198,6 +206,9 @@ with tab_sp:
             st.markdown(f"**{p['name']}**")
             st.caption(p["category"])
             st.markdown(f'<span class="muted">{p["desc"]}</span>', unsafe_allow_html=True)
+            with st.expander("Thông tin sản phẩm"):
+                st.markdown("\n".join(f"- **{k}:** {v}" for k, v in p["specs"]))
+                st.markdown(f"**Cách dùng:** {p['usage']}")
             st.markdown(
                 f'<span class="price">{vnd(p["price"])}</span> / {p["unit"]}  \n'
                 f'<span class="muted">{p["note"]}</span>',
